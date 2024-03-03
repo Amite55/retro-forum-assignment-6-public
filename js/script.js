@@ -1,7 +1,9 @@
+
+const cardShowTitleViewr = document.getElementById('card-titile-viewr');
 const loadData = async () =>{
     const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
     const data = await response.json();
-
+    // api card section
     const cardContainer = document.getElementById('card-container');
     data.posts.forEach(element => {
         const div = document.createElement('div');
@@ -24,14 +26,50 @@ const loadData = async () =>{
              <p><i class="fa-regular fa-clock"></i> <span>${element.posted_time}</span> min</p>
            </div>
 
-           <button class="btn"><img src="images/bbtn.png" alt=""></button>
+           <button id="btn-click" class="btn bum-bum"><img src="images/bbtn.png" alt=""></button>
          </div>
 
        </div>
      </div>`;
      cardContainer.appendChild(div)
     });
+
+    // button click 
+    const btnClick =document.getElementsByClassName('bum-bum');
+    
+    let count = 0;
+    for(const btn of btnClick){
+        btn.addEventListener('click', function(event){
+            count++;
+            const countNum = document.getElementById('count-num');
+            countNum.innerText= count;
+            // console.log(event.target.parentNode.parentNode.parentNode.childNodes[3].innerText)
+
+            const titleName = event.target.parentNode.parentNode.parentNode.childNodes[3].innerText;
+
+            // console.log(event.target.parentNode.parentNode.parentNode.childNodes[7].childNodes[1].childNodes[3].outerText);
+            const countView = event.target.parentNode.parentNode.parentNode.childNodes[7].childNodes[1].childNodes[3].outerText;
+
+            // const titleCard = document.getElementById('title-Card');
+            // const viewCouter = document.getElementById('view-counter')
+            // titleCard.innerText= titleName;
+            // viewCouter.innerText= countView;
+
+            const createDiv = document.createElement('div');
+
+           createDiv.innerHTML=`<div class="flex gap-8 bg-zinc-700 py-7 rounded-lg px-3 my-5">
+            <p id="title-Card">${titleName}</p>
+            <p id="view-counter"><i class="fa-regular fa-eye"></i> <span>${countView}</span></p>
+          </div>`;
+          cardShowTitleViewr.appendChild(createDiv)
+
+        })
+    }
+
 }
+
+
+
 
 
 
