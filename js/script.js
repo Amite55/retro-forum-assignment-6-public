@@ -3,17 +3,17 @@ const cardShowTitleViewr = document.getElementById('card-titile-viewr');
 const loadData = async () =>{
     const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
     const data = await response.json();
-    // api card section
+    // api card section=================
     const cardContainer = document.getElementById('card-container');
     data.posts.forEach(element => {
 
-      // active true or false
+      // active true or false=======================
       let veriFieldBadge = '';
       if(element.isActive === true){
-        veriFieldBadge = `<div class="w-3 h-3 bg-green-700 rounded-full"> </div>`;
+        veriFieldBadge = `<div class="w-3 h-3 bg-green-700 rounded-full"></div>`;
       }
       else{
-        veriFieldBadge = `<div class="w-3 h-3 bg-red-700 rounded-full"> </div>`;
+        veriFieldBadge = `<div class="w-3 h-3 bg-red-700 rounded-full"></div>`;
       }
 
         const div = document.createElement('div');
@@ -29,6 +29,7 @@ const loadData = async () =>{
          </div>
          <h4 class="font-bold text-2xl">${element.title}</h4>
          <p>${element.description}</p>
+       
          <div class="flex justify-between">
            <div class="flex gap-4">
              <p><i class="fa-regular fa-message"></i> <span>${element.comment_count}</span></p>
@@ -44,7 +45,7 @@ const loadData = async () =>{
      cardContainer.appendChild(div)
     });
 
-    // button click 
+    // button click================= 
     const btnClick =document.getElementsByClassName('bum-bum');
     
     let count = 0;
@@ -64,7 +65,7 @@ const loadData = async () =>{
 
             const createDiv = document.createElement('div');
 
-           createDiv.innerHTML=`<div class="flex gap-2 bg-zinc-700 py-7 rounded-lg px-3 my-5">
+           createDiv.innerHTML=`<div class="flex justify-between bg-zinc-700 py-7 rounded-lg px-3 my-5">
             <p id="title-Card">${titleName}</p>
             <p id="view-counter" class ="text-center"><i class="fa-regular fa-eye"></i> <span>${countView}</span></p>
           </div>`;
@@ -75,7 +76,7 @@ const loadData = async () =>{
 
 }
 
-// search data section
+// search data section=====================
 const searchBtn = () =>{
     const searchField = document.getElementById('search-field');
     const seachText = searchField.value;
@@ -97,7 +98,7 @@ const postData = async () =>{
 
 
 
-        divu.innerHTML=`<div class="card bg-base-100 shadow-xl h-[480px] border border-sky-500">
+        divu.innerHTML=`<div class="card bg-base-100 shadow-xl h-[500px] border border-sky-500">
         <figure class="px-10 pt-10">
           <img src="${data.cover_image}" alt="Shoes" class="rounded-xl" />
         </figure>
