@@ -78,14 +78,14 @@ const postData = async () =>{
 
 
 
-        divu.innerHTML=`<div class="card bg-base-100 shadow-xl border border-sky-500">
+        divu.innerHTML=`<div class="card bg-base-100 shadow-xl h-[480px] border border-sky-500">
         <figure class="px-10 pt-10">
           <img src="${data.cover_image}" alt="Shoes" class="rounded-xl" />
         </figure>
         <div class="card-body">
-          <div class="flex ">
+          <div class="">
             <i class="fa-regular fa-calendar-days"></i>
-            <p>${data?.author.posted_date}</p>
+            <p>${data?.author?.posted_date || 'No Date'}</p>
           </div>
           <h2 class="card-title">${data.title}</h2>
           <p>${data.description}</p>
@@ -93,7 +93,7 @@ const postData = async () =>{
             <img class="w-10 rounded-full" src="${data.profile_image}" alt="">
             <div>
               <h4 class="text-xl font-bold">${data.author.name}</h4>
-              <p>${data.author?.designation}</p>
+              <p>${data.author?.designation || 'No Info'}</p>
             </div>
           </div>
         </div>
