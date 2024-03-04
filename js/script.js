@@ -6,10 +6,21 @@ const loadData = async () =>{
     // api card section
     const cardContainer = document.getElementById('card-container');
     data.posts.forEach(element => {
+
+      // active true or false
+      let veriFieldBadge = '';
+      if(element.isActive === true){
+        veriFieldBadge = `<div class="w-3 h-3 bg-green-700 rounded-full"> </div>`;
+      }
+      else{
+        veriFieldBadge = `<div class="w-3 h-3 bg-red-700 rounded-full"> </div>`;
+      }
+
         const div = document.createElement('div');
        div.innerHTML=`<div class="flex gap-7 my-7 bg-slate-700 py-5 px-3 rounded-lg drop-shadow-md">
-       <div>
-         <img class="w-10 rounded-full border" src="${element.image}" alt="">
+       <div class="indicator">
+       ${veriFieldBadge}
+         <img class="w-10 h-10 rounded-full border" src="${element.image}" alt="">
        </div>
        <div class="space-y-5">
          <div class="flex gap-4">
@@ -53,7 +64,7 @@ const loadData = async () =>{
 
             const createDiv = document.createElement('div');
 
-           createDiv.innerHTML=`<div class="flex gap-8 bg-zinc-700 py-7 rounded-lg px-3 my-5">
+           createDiv.innerHTML=`<div class="flex gap-2 bg-zinc-700 py-7 rounded-lg px-3 my-5">
             <p id="title-Card">${titleName}</p>
             <p id="view-counter" class ="text-center"><i class="fa-regular fa-eye"></i> <span>${countView}</span></p>
           </div>`;
@@ -63,6 +74,14 @@ const loadData = async () =>{
     }
 
 }
+
+// search data section
+const searchBtn = () =>{
+    const searchField = document.getElementById('search-field');
+    const seachText = searchField.value;
+    console.log(seachText)
+}
+
 
 const postData = async () =>{
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts')

@@ -16,7 +16,7 @@
     <nav>
         <div class="lg:flex  justify-between mt-8">
             <h1 class="text-6xl font-extrabold">RaTro</h1>
-            <div class="flex items-center gap-5">
+            <div class="flex items-center gap-5 sm:space-y-2">
                 <div class="mx-3">
                    <span class="tooltip tooltip-info" data-tip="Home">
                      <i class="fa-solid fa-house mx-3  bg-gray-700 p-5 rounded-full border hover:bg-gray-800"></i>
@@ -54,8 +54,8 @@
               <div>
                 <h1 class="text-5xl font-extrabold">Welcome to the <br> <span class="text-blue-500">ReTro</span> Forum</h1>
                 <p class="py-6">Share your favorite opinion and win and wp forum coffee mug!</p>
-                <input class="py-4 px-3 rounded-lg text-white w-72" type="text" name="" id="" placeholder="Search hare anything">
-                <button id="search" class="btn btn-primary">Get Started</button>
+                <input class="py-4 px-3 rounded-lg text-white w-72" type="text" name="" id="search-field" placeholder="Search hare anything">
+                <button onclick="searchBtn()" id="search" class="btn btn-primary">Get Started</button>
               </div>
             </div>
           </div>
@@ -66,7 +66,13 @@
     <!-- ======= Let’s Discuss start hare======= -->
 
     <section>
-        <!-- discuss container header -->
+
+      <!-- =================loading spiner============= -->
+      <div class="text-center my-6 hidden">
+        <span class="loading loading-spinner loading-lg"></span>
+      </div>
+
+        <!-- lets discuss container header -->
         <div class="text-center space-y-8 ">
             <h1 class="text-5xl font-bold">Let’s Discuss</h1>
             <p>Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
@@ -107,17 +113,19 @@
             </div>
 
         <!-- card title -->
-            <div>
-            <div class="flex justify-between my-5 drop-shadow-xl gap-28">
+            <div class=" lg:w-[500px]">
+            <div class="flex justify-between my-5 drop-shadow-xl gap-2">
               <h4 class="text-2xl font-bold">Title</h4>
               <p><i class="fa-solid fa-check-double"></i> Mark as read (<span id="count-num" class="text-green-600 text-x">0</span>)</p>
             </div>
 
               <div id="card-titile-viewr">
+
                 <!-- <div class="flex gap-8 bg-zinc-700 py-7 rounded-lg px-3">
                   <p id="title-Card">..........</p>
                   <p id="view-counter"><i class="fa-regular fa-eye"></i> <span></span></p>
                 </div> -->
+
               </div>
 
             </div>
@@ -126,9 +134,6 @@
     </section>
 
     <!-- ======= Let’s Discuss ends hare======= -->
-
-
-
 
       <!-- ===== register banner section start hare=========== -->
       <section>
