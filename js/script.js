@@ -30,6 +30,7 @@ const loadData = async () =>{
          <h4 class="font-bold text-2xl">${element.title}</h4>
          <p>${element.description}</p>
        
+         <hr>
          <div class="flex justify-between">
            <div class="flex gap-4">
              <p><i class="fa-regular fa-message"></i> <span>${element.comment_count}</span></p>
@@ -57,10 +58,9 @@ const loadData = async () =>{
            
             // counter and viewer counter
             const titleName = event.target.parentNode.parentNode.parentNode.childNodes[3].innerText;
-
           
-            const countView = event.target.parentNode.parentNode.parentNode.childNodes[7].childNodes[1].childNodes[3].outerText;
-
+            const countView = event.target.parentNode.parentNode.childNodes[1].childNodes[3].childNodes[2].innerText;
+            // console.log(event.target.parentNode.parentNode.childNodes[1].childNodes[3].childNodes[2].innerText)
 
 
             const createDiv = document.createElement('div');
@@ -76,11 +76,17 @@ const loadData = async () =>{
 
 }
 
+const searchFn = async(e) =>{
+
+}
 // search data section=====================
 const searchBtn = () =>{
     const searchField = document.getElementById('search-field');
     const seachText = searchField.value;
     console.log(seachText)
+    if(seachText){
+      searchFn(seachText);
+    }
 }
 
 
