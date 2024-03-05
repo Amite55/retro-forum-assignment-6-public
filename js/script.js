@@ -50,34 +50,37 @@ const loadData = async () =>{
        </div>`;
        cardContainer.appendChild(div)
       });
-    },2000);
-
-    // button click================= 
-    const btnClick =document.getElementsByClassName('bum-bum');
+    
+        // button click================= 
+        const btnClick =document.getElementsByClassName('bum-bum');
     
   
-    for(const btn of btnClick){
-        btn.addEventListener('click', function(event){
-            count++;
-            const countNum = document.getElementById('count-num');
-            countNum.innerText= count;
-           
-            // counter and viewer counter
-            const titleName = event.target.parentNode.parentNode.parentNode.childNodes[3].innerText;
-          
-            const countView = event.target.parentNode.parentNode.childNodes[1].childNodes[3].childNodes[2].innerText;
+        for(const btn of btnClick){
+            btn.addEventListener('click', function(event){
+                count++;
+                const countNum = document.getElementById('count-num');
+                countNum.innerText= count;
+               
+                // counter and viewer counter
+                const titleName = event.target.parentNode.parentNode.parentNode.childNodes[3].innerText;
+              
+                const countView = event.target.parentNode.parentNode.childNodes[1].childNodes[3].childNodes[2].innerText;
+    
+    
+                const createDiv = document.createElement('div');
+    
+               createDiv.innerHTML=`<div class="flex justify-between bg-zinc-700 py-7 rounded-lg px-3 my-5">
+                <p id="title-Card">${titleName}</p>
+                <p id="view-counter" class ="text-center"><i class="fa-regular fa-eye"></i> <span>${countView}</span></p>
+              </div>`;
+              cardShowTitleViewr.appendChild(createDiv)
+    
+            })
+        }
+    
+    },2000);
 
 
-            const createDiv = document.createElement('div');
-
-           createDiv.innerHTML=`<div class="flex justify-between bg-zinc-700 py-7 rounded-lg px-3 my-5">
-            <p id="title-Card">${titleName}</p>
-            <p id="view-counter" class ="text-center"><i class="fa-regular fa-eye"></i> <span>${countView}</span></p>
-          </div>`;
-          cardShowTitleViewr.appendChild(createDiv)
-
-        })
-    }
 
 }
 
@@ -133,14 +136,10 @@ setTimeout(() => {
    </div>`;
    cardContainer.appendChild(div)
   });
-}, 2000);
-
-
-const btnClick =document.getElementsByClassName('bum-bum');
-    
-  
-for(const btn of btnClick){
+  const btnClick =document.getElementsByClassName('bum-bum');
+  for(const btn of btnClick){
     btn.addEventListener('click', function(event){
+      console.log('lili')
         count++;
         const countNum = document.getElementById('count-num');
         countNum.innerText= count;
@@ -161,6 +160,14 @@ for(const btn of btnClick){
 
     })
 }
+}, 2000);
+
+
+
+    
+  
+
+
 
 }
 
