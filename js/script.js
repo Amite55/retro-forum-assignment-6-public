@@ -9,46 +9,48 @@ const loadData = async () =>{
     const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
     const data = await response.json();
     // api card section=================
-    data.posts.forEach(element => {
-      spinner.classList.add('hidden')
-      // active true or false=======================
-      let veriFieldBadge = '';
-      if(element.isActive === true){
-        veriFieldBadge = `<div class="w-3 h-3 bg-green-700 rounded-full"></div>`;
-      }
-      else{
-        veriFieldBadge = `<div class="w-3 h-3 bg-red-700 rounded-full"></div>`;
-      }
-
-        const div = document.createElement('div');
-       div.innerHTML=`<div class="flex gap-7 my-7 bg-slate-700 py-5 px-3 rounded-lg drop-shadow-md">
-       <div class="indicator">
-       ${veriFieldBadge}
-         <img class="w-10 h-10 rounded-full border" src="${element.image}" alt="">
-       </div>
-       <div class="space-y-5">
-         <div class="flex gap-4">
-           <p># ${element.category}</p>
-           <p>Author : ${element.author.name}</p>
+    setTimeout(() => {
+      data.posts.forEach(element => {
+        spinner.classList.add('hidden')
+        // active true or false=======================
+        let veriFieldBadge = '';
+        if(element.isActive === true){
+          veriFieldBadge = `<div class="w-3 h-3 bg-green-700 rounded-full"></div>`;
+        }
+        else{
+          veriFieldBadge = `<div class="w-3 h-3 bg-red-700 rounded-full"></div>`;
+        }
+  
+          const div = document.createElement('div');
+         div.innerHTML=`<div class="flex gap-7 my-7 bg-slate-700 py-5 px-3 rounded-lg drop-shadow-md">
+         <div class="indicator">
+         ${veriFieldBadge}
+           <img class="w-10 h-10 rounded-full border" src="${element.image}" alt="">
          </div>
-         <h4 class="font-bold text-2xl">${element.title}</h4>
-         <p>${element.description}</p>
-       
-         <hr>
-         <div class="flex justify-between">
+         <div class="space-y-5">
            <div class="flex gap-4">
-             <p><i class="fa-regular fa-message"></i> <span>${element.comment_count}</span></p>
-             <p><i class="fa-solid fa-eye"></i> <span>${element.view_count}</span></p>
-             <p><i class="fa-regular fa-clock"></i> <span>${element.posted_time}</span> min</p>
+             <p># ${element.category}</p>
+             <p>Author : ${element.author.name}</p>
            </div>
-
-           <button id="btn-click" class="btn bum-bum"><img src="images/bbtn.png" alt=""></button>
+           <h4 class="font-bold text-2xl">${element.title}</h4>
+           <p>${element.description}</p>
+         
+           <hr>
+           <div class="flex justify-between">
+             <div class="flex gap-4">
+               <p><i class="fa-regular fa-message"></i> <span>${element.comment_count}</span></p>
+               <p><i class="fa-solid fa-eye"></i> <span>${element.view_count}</span></p>
+               <p><i class="fa-regular fa-clock"></i> <span>${element.posted_time}</span> min</p>
+             </div>
+  
+             <button id="btn-click" class="btn bum-bum"><img src="images/bbtn.png" alt=""></button>
+           </div>
+  
          </div>
-
-       </div>
-     </div>`;
-     cardContainer.appendChild(div)
-    });
+       </div>`;
+       cardContainer.appendChild(div)
+      });
+    },2000);
 
     // button click================= 
     const btnClick =document.getElementsByClassName('bum-bum');
@@ -90,46 +92,48 @@ const searchDiscus = async(item) =>{
  cardContainer.innerHTML="";
 
 
- posts.forEach(element => {
-  spinner.classList.add('hidden')
-  // active true or false=======================
-  let veriFieldBadge = '';
-  if(element.isActive === true){
-    veriFieldBadge = `<div class="w-3 h-3 bg-green-700 rounded-full"></div>`;
-  }
-  else{
-    veriFieldBadge = `<div class="w-3 h-3 bg-red-700 rounded-full"></div>`;
-  }
-
-    const div = document.createElement('div');
-   div.innerHTML=`<div class="flex gap-7 my-7 bg-slate-700 py-5 px-3 rounded-lg drop-shadow-md">
-   <div class="indicator">
-   ${veriFieldBadge}
-     <img class="w-10 h-10 rounded-full border" src="${element.image}" alt="">
-   </div>
-   <div class="space-y-5">
-     <div class="flex gap-4">
-       <p># ${element.category}</p>
-       <p>Author : ${element.author.name}</p>
+setTimeout(() => {
+  posts.forEach(element => {
+    spinner.classList.add('hidden')
+    // active true or false=======================
+    let veriFieldBadge = '';
+    if(element.isActive === true){
+      veriFieldBadge = `<div class="w-3 h-3 bg-green-700 rounded-full"></div>`;
+    }
+    else{
+      veriFieldBadge = `<div class="w-3 h-3 bg-red-700 rounded-full"></div>`;
+    }
+  
+      const div = document.createElement('div');
+     div.innerHTML=`<div class="flex gap-7 my-7 bg-slate-700 py-5 px-3 rounded-lg drop-shadow-md">
+     <div class="indicator">
+     ${veriFieldBadge}
+       <img class="w-10 h-10 rounded-full border" src="${element.image}" alt="">
      </div>
-     <h4 class="font-bold text-2xl">${element.title}</h4>
-     <p>${element.description}</p>
-   
-     <hr>
-     <div class="flex justify-between">
+     <div class="space-y-5">
        <div class="flex gap-4">
-         <p><i class="fa-regular fa-message"></i> <span>${element.comment_count}</span></p>
-         <p><i class="fa-solid fa-eye"></i> <span>${element.view_count}</span></p>
-         <p><i class="fa-regular fa-clock"></i> <span>${element.posted_time}</span> min</p>
+         <p># ${element.category}</p>
+         <p>Author : ${element.author.name}</p>
        </div>
-
-       <button id="btn-click" class="btn bum-bum"><img src="images/bbtn.png" alt=""></button>
+       <h4 class="font-bold text-2xl">${element.title}</h4>
+       <p>${element.description}</p>
+     
+       <hr>
+       <div class="flex justify-between">
+         <div class="flex gap-4">
+           <p><i class="fa-regular fa-message"></i> <span>${element.comment_count}</span></p>
+           <p><i class="fa-solid fa-eye"></i> <span>${element.view_count}</span></p>
+           <p><i class="fa-regular fa-clock"></i> <span>${element.posted_time}</span> min</p>
+         </div>
+  
+         <button id="btn-click" class="btn bum-bum"><img src="images/bbtn.png" alt=""></button>
+       </div>
+  
      </div>
-
-   </div>
- </div>`;
- cardContainer.appendChild(div)
-});
+   </div>`;
+   cardContainer.appendChild(div)
+  });
+}, 2000);
 
 
 const btnClick =document.getElementsByClassName('bum-bum');
